@@ -1,6 +1,6 @@
 plugins {
-    alias(libs.plugins.androidLibrary)
-    alias(libs.plugins.jetbrainsKotlinAndroid)
+    `android-library`
+    `kotlin-android`
 }
 
 android {
