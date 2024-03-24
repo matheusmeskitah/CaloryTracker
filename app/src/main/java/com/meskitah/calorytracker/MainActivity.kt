@@ -16,6 +16,7 @@ import com.meskitah.calorytracker.ui.theme.CaloryTrackerTheme
 import com.meskitah.core.navigation.Route
 import com.meskitah.onboarding_presentation.age.AgeScreen
 import com.meskitah.onboarding_presentation.gender.GenderScreen
+import com.meskitah.onboarding_presentation.height.HeightScreen
 import com.meskitah.onboarding_presentation.welcome.WelcomeScreen
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -40,13 +41,19 @@ class MainActivity : ComponentActivity() {
                             WelcomeScreen(onNavigate = navController::navigateTo)
                         }
                         composable(Route.AGE) {
-                            AgeScreen(onNavigate = navController::navigateTo, scaffoldState = scaffoldState)
+                            AgeScreen(
+                                onNavigate = navController::navigateTo,
+                                scaffoldState = scaffoldState
+                            )
                         }
                         composable(Route.GENDER) {
                             GenderScreen(onNavigate = navController::navigateTo)
                         }
                         composable(Route.HEIGHT) {
-
+                            HeightScreen(
+                                onNavigate = navController::navigateTo,
+                                scaffoldState = scaffoldState
+                            )
                         }
                         composable(Route.NUTRIENT_GOAL) {
 
