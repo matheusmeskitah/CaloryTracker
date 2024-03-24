@@ -1,4 +1,4 @@
-package com.plcoding.calorytracker
+package com.meskitah.calorytracker
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
