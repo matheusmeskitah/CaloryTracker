@@ -33,16 +33,16 @@ fun WelcomeScreen(
     ) {
         Text(
             text = stringResource(id = R.string.welcome_text),
-            color = MaterialTheme.colors.onSurface,
             textAlign = TextAlign.Center,
-            style = MaterialTheme.typography.h1
+            style = MaterialTheme.typography.h1,
+            color = MaterialTheme.colors.onSurface
         )
 
         Spacer(modifier = Modifier.height(spacing.spaceMedium))
 
         ActionButton(
             text = stringResource(id = R.string.next),
-            onClick = { onNavigate(UiEvent.Navigate(Route.AGE)) },
+            onClick = { onNavigate(UiEvent.Navigate(Route.GENDER)) },
             modifier = Modifier.align(Alignment.CenterHorizontally)
         )
     }
