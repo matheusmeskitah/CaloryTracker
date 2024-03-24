@@ -17,6 +17,7 @@ import com.meskitah.core.navigation.Route
 import com.meskitah.onboarding_presentation.age.AgeScreen
 import com.meskitah.onboarding_presentation.gender.GenderScreen
 import com.meskitah.onboarding_presentation.height.HeightScreen
+import com.meskitah.onboarding_presentation.weight.WeightScreen
 import com.meskitah.onboarding_presentation.welcome.WelcomeScreen
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -51,6 +52,12 @@ class MainActivity : ComponentActivity() {
                         }
                         composable(Route.HEIGHT) {
                             HeightScreen(
+                                onNavigate = navController::navigateTo,
+                                scaffoldState = scaffoldState
+                            )
+                        }
+                        composable(Route.WEIGHT) {
+                            WeightScreen(
                                 onNavigate = navController::navigateTo,
                                 scaffoldState = scaffoldState
                             )
