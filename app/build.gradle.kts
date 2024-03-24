@@ -48,6 +48,10 @@ android {
     }
 }
 
+kapt {
+    correctErrorTypes = true
+}
+
 dependencies {
     implementation(project(Modules.core))
     implementation(project(Modules.coreUi))
