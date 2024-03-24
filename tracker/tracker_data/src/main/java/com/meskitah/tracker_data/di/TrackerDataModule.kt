@@ -1,5 +1,8 @@
 package com.meskitah.tracker_data.di
 
+import android.app.Application
+import androidx.room.Room
+import com.meskitah.tracker_data.local.TrackerDatabase
 import com.meskitah.tracker_data.remote.OpenFoodApi
 import com.meskitah.tracker_data.remote.OpenFoodApi.Companion.BASE_URL
 import dagger.Module
@@ -38,5 +41,11 @@ object TrackerDataModule {
             .client(client)
             .build()
             .create()
+    }
+
+    @Provides
+    @Singleton
+    fun provideTrackerDatabase(app: Application): TrackerDatabase {
+        return Room.databaseBuilder(app, TrackerDatabase::class.java, "tracker_db").build()
     }
 }
