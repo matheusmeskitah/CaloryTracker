@@ -14,6 +14,7 @@ import androidx.navigation.compose.rememberNavController
 import com.meskitah.calorytracker.navigation.navigateTo
 import com.meskitah.calorytracker.ui.theme.CaloryTrackerTheme
 import com.meskitah.core.navigation.Route
+import com.meskitah.onboarding_presentation.activity.ActivityLevelScreen
 import com.meskitah.onboarding_presentation.age.AgeScreen
 import com.meskitah.onboarding_presentation.gender.GenderScreen
 import com.meskitah.onboarding_presentation.height.HeightScreen
@@ -62,13 +63,13 @@ class MainActivity : ComponentActivity() {
                                 scaffoldState = scaffoldState
                             )
                         }
-                        composable(Route.NUTRIENT_GOAL) {
-
-                        }
                         composable(Route.ACTIVITY) {
-
+                            ActivityLevelScreen(onNavigate = navController::navigateTo)
                         }
                         composable(Route.GOAL) {
+
+                        }
+                        composable(Route.NUTRIENT_GOAL) {
 
                         }
 

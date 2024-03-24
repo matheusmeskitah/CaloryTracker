@@ -26,7 +26,7 @@ class DefaultPreferences(
         sharedPrefs.edit().putInt(Preferences.KEY_HEIGHT, height).apply()
     }
 
-    override fun activityLevel(level: ActivityLevel) {
+    override fun saveActivityLevel(level: ActivityLevel) {
         sharedPrefs.edit().putString(Preferences.KEY_ACTIVITY_LEVEL, level.name).apply()
     }
 
