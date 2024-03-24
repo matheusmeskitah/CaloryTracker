@@ -6,6 +6,7 @@ import android.content.SharedPreferences
 import com.meskitah.core.data.preferences.DefaultPreferences
 import com.meskitah.core.domain.preferences.Preferences
 import com.meskitah.core.domain.use_case.FilterOutDigits
+import com.meskitah.onboarding_domain.use_case.ValidateNutrients
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
