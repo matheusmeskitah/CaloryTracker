@@ -7,6 +7,10 @@ apply(from = "$rootDir/base-module.gradle")
 
 android {
     namespace = "com.meskitah.tracker_data"
+
+    compileOptions {
+        isCoreLibraryDesugaringEnabled = true
+    }
 }
 
 dependencies {
@@ -21,4 +25,6 @@ dependencies {
     "kapt"(Room.roomCompiler)
     implementation(Room.roomKtx)
     implementation(Room.roomRuntime)
+
+    coreLibraryDesugaring(Tools.desugar)
 }

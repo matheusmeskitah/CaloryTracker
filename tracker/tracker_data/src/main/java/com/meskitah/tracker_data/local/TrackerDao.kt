@@ -1,4 +1,4 @@
-package com.meskitah.tracker_data.local.dao
+package com.meskitah.tracker_data.local
 
 import androidx.room.Dao
 import androidx.room.Delete
