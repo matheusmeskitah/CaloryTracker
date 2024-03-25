@@ -30,9 +30,7 @@ class SearchViewModel @Inject constructor(
 
     fun onEvent(event: SearchEvent) {
         when (event) {
-            is SearchEvent.OnQueryChange -> {
-                state = state.copy(query = event.query)
-            }
+            is SearchEvent.OnQueryChange -> state = state.copy(query = event.query)
 
             is SearchEvent.OnAmountForFoodChange -> {
                 state = state.copy(
@@ -44,9 +42,7 @@ class SearchViewModel @Inject constructor(
                 )
             }
 
-            is SearchEvent.OnSearch -> {
-                executeSearch()
-            }
+            is SearchEvent.OnSearch -> executeSearch()
 
             is SearchEvent.OnToggleTrackableFood -> {
                 state = state.copy(
@@ -64,9 +60,7 @@ class SearchViewModel @Inject constructor(
                 )
             }
 
-            is SearchEvent.OnTrackFoodClick -> {
-                trackFood(event)
-            }
+            is SearchEvent.OnTrackFoodClick -> trackFood(event)
         }
     }
 
@@ -80,9 +74,7 @@ class SearchViewModel @Inject constructor(
                 .searchFood(state.query)
                 .onSuccess { foods ->
                     state = state.copy(
-                        trackableFood = foods.map {
-                            TrackableFoodUiState(it)
-                        },
+                        trackableFood = foods.map { TrackableFoodUiState(it) },
                         isSearching = false,
                         query = ""
                     )
