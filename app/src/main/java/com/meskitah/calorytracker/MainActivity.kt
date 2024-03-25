@@ -22,6 +22,7 @@ import com.meskitah.onboarding_presentation.height.HeightScreen
 import com.meskitah.onboarding_presentation.nutrient_goal.NutrientGoalScreen
 import com.meskitah.onboarding_presentation.weight.WeightScreen
 import com.meskitah.onboarding_presentation.welcome.WelcomeScreen
+import com.meskitah.tracker_presentation.tracker_overview.TrackerOverviewScreen
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -79,7 +80,7 @@ class MainActivity : ComponentActivity() {
                         }
 
                         composable(Route.TRACKER_OVERVIEW) {
-
+                            TrackerOverviewScreen(onNavigate = navController::navigateTo)
                         }
                         composable(Route.SEARCH) {
 

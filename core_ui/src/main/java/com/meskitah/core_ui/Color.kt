@@ -1,4 +1,4 @@
-package com.meskitah.calorytracker.ui.theme
+package com.meskitah.core_ui
 
 import androidx.compose.ui.graphics.Color
 
