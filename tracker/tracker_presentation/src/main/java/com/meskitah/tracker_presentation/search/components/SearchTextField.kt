@@ -53,9 +53,7 @@ fun SearchTextField(
                     defaultKeyboardAction(ImeAction.Search)
                 }
             ),
-            keyboardOptions = KeyboardOptions(
-                imeAction = ImeAction.Search
-            ),
+            keyboardOptions = KeyboardOptions(imeAction = ImeAction.Search),
             modifier = Modifier
                 .clip(RoundedCornerShape(5.dp))
                 .padding(2.dp)

@@ -7,5 +7,5 @@ data class Product(
     val imageFrontThumbUrl: String?,
     @Json(name = "product_name")
     val productName: String?,
-    val nutriments: Nutriments
+    val nutriments: Nutriments?
 )
