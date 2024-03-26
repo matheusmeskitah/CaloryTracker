@@ -7,7 +7,6 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.meskitah.core.domain.model.ActivityLevel
 import com.meskitah.core.domain.preferences.Preferences
-import com.meskitah.core.navigation.Route
 import com.meskitah.core.util.UiEvent
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
@@ -34,7 +33,7 @@ class ActivityLevelViewModel @Inject constructor(
         viewModelScope.launch {
             preferences.saveActivityLevel(selectedActivityLevel)
 
-            _uiEvent.send(UiEvent.Navigate(Route.GOAL))
+            _uiEvent.send(UiEvent.Success)
         }
     }
 }

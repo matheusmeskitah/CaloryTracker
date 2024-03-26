@@ -8,7 +8,6 @@ import androidx.lifecycle.viewModelScope
 import com.meskitah.core.R
 import com.meskitah.core.domain.preferences.Preferences
 import com.meskitah.core.domain.use_case.FilterOutDigits
-import com.meskitah.core.navigation.Route
 import com.meskitah.core.util.UiEvent
 import com.meskitah.core.util.UiText
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -47,7 +46,7 @@ class HeightViewModel @Inject constructor(
 
             preferences.saveHeight(heightNumber)
 
-            _uiEvent.send(UiEvent.Navigate(Route.WEIGHT))
+            _uiEvent.send(UiEvent.Success)
         }
     }
 }

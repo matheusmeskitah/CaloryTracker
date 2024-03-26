@@ -1,4 +1,4 @@
-package com.meskitah.core.navigation
+package com.meskitah.calorytracker.navigation
 
 object Route {
     const val WELCOME = "welcome"

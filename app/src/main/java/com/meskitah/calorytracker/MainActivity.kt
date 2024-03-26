@@ -14,10 +14,9 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
-import com.meskitah.calorytracker.navigation.navigateTo
 import com.meskitah.calorytracker.ui.theme.CaloryTrackerTheme
 import com.meskitah.core.domain.preferences.Preferences
-import com.meskitah.core.navigation.Route
+import com.meskitah.calorytracker.navigation.Route
 import com.meskitah.onboarding_presentation.activity.ActivityLevelScreen
 import com.meskitah.onboarding_presentation.age.AgeScreen
 import com.meskitah.onboarding_presentation.gender.GenderScreen
@@ -53,50 +52,58 @@ class MainActivity : ComponentActivity() {
                 ) { padding ->
                     NavHost(
                         navController = navController,
-                        startDestination = if(shouldShowOnboarding) {
+                        startDestination = if (shouldShowOnboarding) {
                             Route.WELCOME
                         } else Route.TRACKER_OVERVIEW,
                         modifier = Modifier.padding(padding)
                     ) {
                         composable(Route.WELCOME) {
-                            WelcomeScreen(onNavigate = navController::navigateTo)
+                            WelcomeScreen(onNextClick = { navController.navigate(Route.GENDER) })
+                        }
+                        composable(Route.GENDER) {
+                            GenderScreen(onNextClick = { navController.navigate(Route.AGE) })
                         }
                         composable(Route.AGE) {
                             AgeScreen(
-                                onNavigate = navController::navigateTo,
+                                onNextClick = { navController.navigate(Route.HEIGHT) },
                                 scaffoldState = scaffoldState
                             )
                         }
-                        composable(Route.GENDER) {
-                            GenderScreen(onNavigate = navController::navigateTo)
-                        }
                         composable(Route.HEIGHT) {
                             HeightScreen(
-                                onNavigate = navController::navigateTo,
+                                onNextClick = { navController.navigate(Route.WEIGHT) },
                                 scaffoldState = scaffoldState
                             )
                         }
                         composable(Route.WEIGHT) {
                             WeightScreen(
-                                onNavigate = navController::navigateTo,
+                                onNextClick = { navController.navigate(Route.ACTIVITY) },
                                 scaffoldState = scaffoldState
                             )
                         }
                         composable(Route.ACTIVITY) {
-                            ActivityLevelScreen(onNavigate = navController::navigateTo)
+                            ActivityLevelScreen(onNextClick = { navController.navigate(Route.GOAL) })
                         }
                         composable(Route.GOAL) {
-                            GoalScreen(onNavigate = navController::navigateTo)
+                            GoalScreen(onNextClick = { navController.navigate(Route.NUTRIENT_GOAL) })
                         }
                         composable(Route.NUTRIENT_GOAL) {
                             NutrientGoalScreen(
-                                onNavigate = navController::navigateTo,
+                                onNextClick = { navController.navigate(Route.TRACKER_OVERVIEW) },
                                 scaffoldState = scaffoldState
                             )
                         }
 
                         composable(Route.TRACKER_OVERVIEW) {
-                            TrackerOverviewScreen(onNavigate = navController::navigateTo)
+                            TrackerOverviewScreen(onNavigateToSearch = { mealName, day, month, year ->
+                                navController.navigate(
+                                    route = Route.SEARCH
+                                            + "/${mealName}"
+                                            + "/${day}"
+                                            + "/${month}"
+                                            + "/${year}"
+                                )
+                            })
                         }
                         composable(
                             route = Route.SEARCH + "/{mealName}/{dayOfMonth}/{month}/{year}",
