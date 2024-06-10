@@ -16,7 +16,7 @@ android {
         versionCode = ProjectConfig.versionCode
         versionName = ProjectConfig.versionName
 
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner = "com.meskitah.calorytracker.HiltTestRunner"
     }
 
     buildTypes {
@@ -46,6 +46,9 @@ android {
     packaging {
         resources {
             excludes += "/META-INF/*"
+        }
+        jniLibs {
+            useLegacyPackaging = true
         }
     }
 }
